@@ -105,7 +105,7 @@ export default function JobDetail() {
         </div>
       </Section>
 
-      <section id="apply" className="scroll-mt-24 border-t border-line bg-surface/50 py-16 sm:py-20" aria-label="Application form">
+      <section id="apply" className="scroll-mt-32 border-t border-line bg-surface/50 py-16 sm:py-20" aria-label="Application form">
         <div className="container-x max-w-4xl">
           <ApplicationForm job={job} />
         </div>

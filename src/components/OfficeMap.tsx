@@ -9,7 +9,10 @@ export function OfficeMap() {
   return (
     <div className="card overflow-hidden">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line px-5 py-4">
-        <p className="flex items-center gap-2 font-semibold"><Icon name="mapPin" className="h-5 w-5 text-brand" />{site.contact.address}</p>
+        <div className="space-y-1">
+          <p className="flex items-center gap-2 font-semibold"><Icon name="mapPin" className="h-5 w-5 text-brand" />{site.contact.address}</p>
+          <a href={`mailto:${site.contact.email}`} className="flex items-center gap-2 text-sm text-brand hover:underline"><Icon name="mail" className="h-5 w-5" />{site.contact.email}</a>
+        </div>
         <a href={mapsLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
           Open in Google Maps <Icon name="arrowUpRight" className="h-4 w-4" /><span className="sr-only"> (opens in a new tab)</span>
         </a>

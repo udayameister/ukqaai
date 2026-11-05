@@ -52,7 +52,7 @@ export default function Research() {
         </div>
       </Section>
 
-      <section id="collaborate" aria-labelledby="collab-title" className="scroll-mt-24 border-t border-line py-20 sm:py-24">
+      <section id="collaborate" aria-labelledby="collab-title" className="scroll-mt-32 border-t border-line py-20 sm:py-24">
         <div className="container-x grid gap-10 lg:grid-cols-[1fr_1.6fr]">
           <div className="reveal lg:sticky lg:top-24 lg:self-start">
             <p className="eyebrow mb-4">Research collaboration</p>

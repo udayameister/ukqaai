@@ -6,6 +6,8 @@ import { Icon } from '@/components/Icon'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { ButtonLink, Badge } from '@/components/ui'
 import { mainNav } from '@/data/navigation'
+import { site } from '@/config/site'
+import { mapsLink } from '@/components/OfficeMap'
 import { services, statusLabels } from '@/data/services'
 
 const linkCls = ({ isActive }: { isActive: boolean }) =>
@@ -39,6 +41,16 @@ export function Header() {
 
   return (
     <header className={`sticky top-0 z-50 border-b transition-colors duration-300 ${scrolled || mobileOpen ? 'border-line bg-bg/85 backdrop-blur-xl' : 'border-transparent bg-transparent'}`}>
+      <div className="border-b border-line bg-navy-deep text-[#c3cbe4]">
+        <div className="container-x flex h-8 items-center justify-between gap-4 text-xs">
+          <a href={`mailto:${site.contact.email}`} className="inline-flex items-center gap-1.5 font-medium hover:text-white">
+            <Icon name="mail" className="h-3.5 w-3.5 text-[#7aa7ff]" />{site.contact.email}
+          </a>
+          <a href={mapsLink} target="_blank" rel="noopener noreferrer" className="hidden items-center gap-1.5 hover:text-white sm:inline-flex">
+            <Icon name="mapPin" className="h-3.5 w-3.5 text-[#7aa7ff]" />Panruti, Tamil Nadu, India<span className="sr-only"> (opens Google Maps in a new tab)</span>
+          </a>
+        </div>
+      </div>
       <div className="container-x flex h-[72px] items-center justify-between gap-4">
         <Link to="/" className="min-w-0 rounded-lg">
           <Logo />
@@ -102,7 +114,7 @@ export function Header() {
       </div>
 
       {mobileOpen && (
-        <nav id="mobile-menu" aria-label="Mobile" className="h-[calc(100dvh-72px)] overflow-y-auto border-t border-line bg-bg lg:hidden">
+        <nav id="mobile-menu" aria-label="Mobile" className="h-[calc(100dvh-104px)] overflow-y-auto border-t border-line bg-bg lg:hidden">
           <div className="container-x py-6">
             <p className="eyebrow mb-3">Services</p>
             <ul className="grid gap-1 sm:grid-cols-2">

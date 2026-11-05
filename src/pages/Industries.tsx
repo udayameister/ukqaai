@@ -12,7 +12,7 @@ export default function Industries() {
       <Section>
         <div className="grid gap-6 md:grid-cols-2">
           {industries.map((i) => (
-            <section key={i.id} id={i.id} aria-labelledby={`${i.id}-t`} className="card reveal scroll-mt-28 p-7 sm:p-8">
+            <section key={i.id} id={i.id} aria-labelledby={`${i.id}-t`} className="card reveal scroll-mt-32 p-7 sm:p-8">
               <IconTile name={i.icon} />
               <h2 id={`${i.id}-t`} className="mt-5 text-2xl font-semibold">{i.title}</h2>
               <p className="mt-3 text-muted">{i.description}</p>

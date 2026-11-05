@@ -52,6 +52,8 @@ export const site = {
     {
       name: 'Udayakumar Palanivelu',
       role: 'Founder & CEO',
+      /** Photo in public/images/team/ — a .webp with the same name is used where supported. */
+      photo: '/images/team/udayakumar-palanivelu.jpg',
       bio: 'AI researcher and computer science educator with more than 16 years of academic experience in India and abroad. His PhD research at Vellore Institute of Technology, "Human brain connectome mapping using deep learning", produced graph neural network models for Alzheimer’s disease and schizophrenia classification published in IEEE Access, Results in Engineering and the Journal of X-Ray Science and Technology. He leads UKQAAI’s work in AI, healthcare data science and generative AI, and founded the AcadexMatch academic recruitment platform.',
       focus: ['Neuroimaging & brain connectomics', 'Healthcare data science', 'Graph neural networks', 'Generative AI', 'Multimodal medical imaging'],
       highlights: [

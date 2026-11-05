@@ -87,16 +87,22 @@ export default function About() {
         <SectionHeader id="leadership-title" eyebrow="Leadership" title="Meet our Founder & CEO" />
         <div className="grid gap-6 lg:max-w-4xl">
           {site.leadership.map((p) => (
-            <article key={p.name} className="card reveal p-7 sm:p-8">
-              <div className="flex items-center gap-4">
-                <span className="bg-brand-gradient inline-flex h-16 w-16 items-center justify-center rounded-2xl font-display text-xl font-bold text-white" aria-hidden="true">
-                  {p.name.split(' ').map((w) => w[0]).join('').slice(0, 2)}
-                </span>
-                <div>
-                  <h3 className="text-xl font-semibold">{p.name}</h3>
-                  <p className="text-sm font-medium text-brand">{p.role}</p>
-                </div>
+            <article key={p.name} className="card reveal grid gap-8 p-7 sm:p-8 md:grid-cols-[240px_1fr]">
+              <div>
+                {p.photo ? (
+                  <picture>
+                    <source srcSet={p.photo.replace(/\.jpe?g$/, '.webp')} type="image/webp" />
+                    <img src={p.photo} alt={`${p.name}, ${p.role} of ${site.name}`} width={436} height={447} loading="lazy" decoding="async" className="aspect-[4/5] w-full max-w-[280px] rounded-2xl border border-line object-cover object-top shadow-xl shadow-black/20" />
+                  </picture>
+                ) : (
+                  <span className="bg-brand-gradient inline-flex h-16 w-16 items-center justify-center rounded-2xl font-display text-xl font-bold text-white" aria-hidden="true">
+                    {p.name.split(' ').map((w) => w[0]).join('').slice(0, 2)}
+                  </span>
+                )}
               </div>
+              <div>
+                <h3 className="text-2xl font-semibold">{p.name}</h3>
+                <p className="mt-1 font-display text-sm font-semibold uppercase tracking-wider text-brand">{p.role}</p>
               <p className="mt-5 text-muted">{p.bio}</p>
               <ul className="mt-5 flex flex-wrap gap-2">
                 {p.focus.map((f) => <li key={f} className="rounded-full border border-line bg-surface-2 px-3 py-1 text-sm">{f}</li>)}
@@ -116,6 +122,7 @@ export default function About() {
                   </li>
                 ))}
               </ul>
+              </div>
             </article>
           ))}
         </div>

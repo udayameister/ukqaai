@@ -18,6 +18,13 @@ const organization = {
   logo: `${site.url}/images/logo-512.png`,
   description: site.description,
   email: site.contact.email,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: site.contact.addressParts.locality,
+    addressRegion: site.contact.addressParts.region,
+    postalCode: site.contact.addressParts.postalCode,
+    addressCountry: site.contact.addressParts.country,
+  },
   areaServed: 'Worldwide',
   sameAs: site.social.map((s) => s.url).filter(Boolean),
   founder: site.leadership.map((l) => ({ '@type': 'Person', name: l.name })),

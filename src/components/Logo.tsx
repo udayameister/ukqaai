@@ -41,15 +41,15 @@ export function LogoMark({ className = 'h-9 w-9', title }: { className?: string;
 export function Logo({ showTagline = false }: { showTagline?: boolean }) {
   return (
     <span className="flex items-center gap-2.5">
-      <LogoMark className="h-9 w-9 shrink-0 text-fg" />
+      <LogoMark className="h-10 w-10 shrink-0 text-fg" />
       <span className="flex flex-col leading-none">
-        <span className="font-display text-[1.2rem] font-bold tracking-[0.04em] text-fg">
+        <span className="font-display text-[1.32rem] font-bold tracking-[0.04em] text-fg">
           UKQ<span className="text-gradient">AAI</span>
         </span>{' '}
         {showTagline ? (
-          <span className="mt-1.5 text-[0.72rem] font-medium text-muted">Technologies · Quantum and AI solution for everything</span>
+          <span className="mt-1.5 text-[0.8rem] font-medium text-muted">Technologies · Quantum and AI solution for everything</span>
         ) : (
-          <span className="mt-1 font-display text-[0.6rem] font-medium uppercase tracking-[0.22em] text-muted">Technologies</span>
+          <span className="mt-1 font-display text-[0.66rem] font-medium uppercase tracking-[0.22em] text-muted">Technologies</span>
         )}
       </span>
     </span>

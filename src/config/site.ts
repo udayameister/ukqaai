@@ -32,8 +32,11 @@ export const site = {
     email: 'info@ukqaai.com',
     /** Optional — leave empty to hide. */
     phone: '',
-    /** Only fill in once a registered office address is confirmed. */
-    address: '',
+    /** Office address shown on the Contact page, footer and in search-engine data. */
+    address: 'Melapalayam, Panruti, Tamil Nadu 607106, India',
+    addressParts: { locality: 'Melapalayam, Panruti', region: 'Tamil Nadu', postalCode: '607106', country: 'IN' },
+    /** Google Maps search used for the embedded map and the "Open in Google Maps" link. */
+    mapQuery: 'Melapalayam, Panruti, Tamil Nadu 607106',
     /** Short, confirmed location line. */
     region: 'India',
     serviceArea: 'Clients in India and internationally',

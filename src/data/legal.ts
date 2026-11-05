@@ -48,7 +48,7 @@ export const legalPages: LegalPage[] = [
       {
         heading: 'Service providers',
         paragraphs: [
-          'Contact form submissions are delivered to our inbox through a form-processing service (Web3Forms). The website is hosted on GitHub Pages. If analytics is enabled and you consent, Google Analytics 4 is used. These providers process data on our behalf under their own privacy terms and may process it outside India.',
+          'Contact form submissions are delivered to our inbox through a form-processing service (Web3Forms). The website is hosted on GitHub Pages. If analytics is enabled and you consent, Google Analytics 4 is used. The Contact page embeds Google Maps. These providers process data on our behalf under their own privacy terms and may process it outside India.',
         ],
       },
       {
@@ -94,6 +94,7 @@ export const legalPages: LegalPage[] = [
     sections: [
       { heading: 'Essential storage', paragraphs: ['We store your theme choice (light or dark) and your cookie choice in your browser’s local storage. This stays on your device and is not used to track you.'] },
       { heading: 'Analytics cookies (optional)', paragraphs: ['If analytics is enabled on this website, Google Analytics 4 cookies are set only after you select "Accept" in the cookie banner. They help us understand which pages are useful. If you select "Decline", no analytics scripts are loaded.'] },
+      { heading: 'Embedded Google Maps', paragraphs: ['The Contact page shows an embedded Google Map of our location. When the map loads, Google may set its own cookies under Google\u2019s privacy policy. If you prefer, use the address shown in text instead of the map.'] },
       { heading: 'Managing your choice', paragraphs: ['You can change your choice at any time with the "Cookie settings" link in the footer, or by clearing this site’s data in your browser settings.'] },
       { heading: 'Contact', paragraphs: ['Questions about cookies can be sent to {{email}}.'] },
     ],

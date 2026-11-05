@@ -2,6 +2,7 @@ import { PageHero } from '@/components/PageHero'
 import { ContactForm } from '@/components/ContactForm'
 import { Icon } from '@/components/Icon'
 import { Section } from '@/components/ui'
+import { OfficeMap, mapsLink } from '@/components/OfficeMap'
 import { getPageMeta } from '@/data/pages'
 import { site } from '@/config/site'
 
@@ -26,10 +27,13 @@ export default function Contact() {
               </div>
             )}
             <div className="card p-6">
-              <Icon name="globe" className="h-6 w-6 text-brand" />
+              <Icon name="mapPin" className="h-6 w-6 text-brand" />
               <h2 className="mt-4 text-lg font-semibold">Location</h2>
-              <p className="mt-1 text-muted">{site.contact.address || site.contact.region}</p>
-              <p className="text-sm text-muted">{site.contact.serviceArea}</p>
+              <address className="mt-1 not-italic text-muted">Melapalayam, Panruti,<br />Tamil Nadu – 607106, India</address>
+              <p className="mt-2 text-sm text-muted">{site.contact.serviceArea}</p>
+              <a href={mapsLink} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
+                Get directions <Icon name="arrowUpRight" className="h-4 w-4" /><span className="sr-only"> (opens in a new tab)</span>
+              </a>
             </div>
             {socials.length > 0 && (
               <div className="card p-6">
@@ -42,6 +46,10 @@ export default function Contact() {
           </aside>
           <ContactForm />
         </div>
+      </Section>
+      <Section className="!pt-0" labelledBy="map-title">
+        <h2 id="map-title" className="mb-5 text-2xl font-semibold">Find us</h2>
+        <OfficeMap />
       </Section>
     </>
   )

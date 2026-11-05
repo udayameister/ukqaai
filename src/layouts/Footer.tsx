@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Logo } from '@/components/Logo'
 import { Icon } from '@/components/Icon'
+import { mapsLink } from '@/components/OfficeMap'
 import { OPEN_COOKIE_SETTINGS } from '@/components/CookieBanner'
 import { displayLegalName, site } from '@/config/site'
 import { footerNav } from '@/data/navigation'
@@ -19,7 +20,7 @@ export function Footer() {
           <ul className="mt-6 space-y-2 text-sm">
             <li><a href={`mailto:${site.contact.email}`} className="inline-flex items-center gap-2 text-fg hover:text-brand"><Icon name="mail" className="h-4 w-4 text-brand" />{site.contact.email}</a></li>
             {site.contact.phone && <li><a href={`tel:${site.contact.phone.replace(/\s/g, '')}`} className="text-fg hover:text-brand">{site.contact.phone}</a></li>}
-            <li className="inline-flex items-center gap-2 text-muted"><Icon name="mapPin" className="h-4 w-4 text-brand" />{site.contact.address || site.contact.region}</li>
+            <li><a href={mapsLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-start gap-2 text-muted hover:text-fg"><Icon name="mapPin" className="mt-1 h-4 w-4 shrink-0 text-brand" /><span>{site.contact.address}</span><span className="sr-only"> (opens Google Maps in a new tab)</span></a></li>
           </ul>
           {socials.length > 0 && (
             <ul className="mt-5 flex flex-wrap gap-2" aria-label="Social media">

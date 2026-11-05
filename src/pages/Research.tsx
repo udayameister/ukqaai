@@ -29,7 +29,7 @@ export default function Research() {
           <div className="reveal">
             <p className="eyebrow mb-4">Peer-reviewed work</p>
             <h2 id="pubs-title" className="text-3xl font-semibold">Founder publications</h2>
-            <p className="mt-4 text-muted">Our research foundation comes from our founder’s peer-reviewed work on graph neural networks and deep learning for brain connectome analysis. Full citations are available on Google Scholar.</p>
+            <p className="mt-4 text-muted">Our research foundation comes from the peer-reviewed work of our Founder & CEO, Udayakumar Palanivelu, on graph neural networks and deep learning for brain connectome analysis.</p>
             <a href={scholarProfile} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-1.5 font-semibold text-brand">
               View Google Scholar profile <Icon name="arrowUpRight" className="h-4 w-4" /><span className="sr-only"> (opens in a new tab)</span>
             </a>
@@ -40,6 +40,7 @@ export default function Research() {
                 <div>
                   <p className="font-display font-semibold text-fg">{p.title}</p>
                   <p className="text-sm text-muted">{p.venue}</p>
+                  {p.doi && <a href={`https://doi.org/${p.doi}`} target="_blank" rel="noopener noreferrer" className="text-sm text-brand hover:underline">DOI: {p.doi}<span className="sr-only"> (opens in a new tab)</span></a>}
                 </div>
                 <p className="shrink-0 text-sm text-muted">{p.type} · {p.year}</p>
               </li>

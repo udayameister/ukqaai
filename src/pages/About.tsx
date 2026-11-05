@@ -84,8 +84,8 @@ export default function About() {
       </Section>
 
       <Section labelledBy="leadership-title" className="border-y border-line bg-surface/50">
-        <SectionHeader id="leadership-title" eyebrow="Leadership" title="Founder profile" />
-        <div className="grid gap-6 lg:grid-cols-2">
+        <SectionHeader id="leadership-title" eyebrow="Leadership" title="Meet our Founder & CEO" />
+        <div className="grid gap-6 lg:max-w-4xl">
           {site.leadership.map((p) => (
             <article key={p.name} className="card reveal p-7 sm:p-8">
               <div className="flex items-center gap-4">
@@ -101,11 +101,21 @@ export default function About() {
               <ul className="mt-5 flex flex-wrap gap-2">
                 {p.focus.map((f) => <li key={f} className="rounded-full border border-line bg-surface-2 px-3 py-1 text-sm">{f}</li>)}
               </ul>
-              {p.profileUrl && (
-                <a href={p.profileUrl} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
-                  {p.profileLabel} <Icon name="arrowUpRight" className="h-4 w-4" /><span className="sr-only"> (opens in a new tab)</span>
-                </a>
+              {p.highlights.length > 0 && (
+                <>
+                  <h4 className="mt-6 text-sm font-semibold uppercase tracking-wider text-muted">Awards & certifications</h4>
+                  <div className="mt-3"><CheckList items={p.highlights} /></div>
+                </>
               )}
+              <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
+                {p.links.map((l) => (
+                  <li key={l.url}>
+                    <a href={l.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
+                      {l.label} <Icon name="arrowUpRight" className="h-4 w-4" /><span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </article>
           ))}
         </div>

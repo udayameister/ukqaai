@@ -19,7 +19,7 @@ const pillars: { icon: IconName; title: string; text: string }[] = [
 
 const reasons: { icon: IconName; title: string; text: string }[] = [
   { icon: 'microscope', title: 'Research depth', text: 'Our founder’s doctoral work in AI for neuroimaging shapes how rigorously we build and evaluate models.' },
-  { icon: 'graduation', title: 'Real education experience', text: 'More than 15 years in higher education means our EdTech is designed around how institutions really work.' },
+  { icon: 'graduation', title: 'Real education experience', text: 'More than 16 years in higher education means our EdTech is designed around how institutions really work.' },
   { icon: 'rocket', title: 'Products we run ourselves', text: 'We build and operate our own platforms, so we know what it takes to keep software running in production.' },
   { icon: 'target', title: 'Outcome-focused', text: 'We start from the problem and the metric that matters, not from a technology we want to sell.' },
   { icon: 'scale', title: 'Honest about maturity', text: 'We clearly separate what is proven, what is developing and what is still research.' },

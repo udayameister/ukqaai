@@ -50,12 +50,21 @@ export const site = {
   /** Shown on the About page. Keep details limited to what you want public. */
   leadership: [
     {
-      name: 'Udayakumar P.',
-      role: 'Founder',
-      bio: 'Computer scientist and educator with more than 15 years of teaching experience. His doctoral research focuses on deep learning and graph neural networks for multimodal brain connectome analysis, and he is the founder of the AcadexMatch academic recruitment platform.',
-      focus: ['Graph neural networks', 'Medical imaging & connectomics', 'AI for education'],
-      profileUrl: 'https://scholar.google.com/citations?user=cV5MPAQAAAAJ',
-      profileLabel: 'Google Scholar profile',
+      name: 'Udayakumar Palanivelu',
+      role: 'Founder & CEO',
+      bio: 'AI researcher and computer science educator with more than 16 years of academic experience in India and abroad. His PhD research at Vellore Institute of Technology, "Human brain connectome mapping using deep learning", produced graph neural network models for Alzheimer’s disease and schizophrenia classification published in IEEE Access, Results in Engineering and the Journal of X-Ray Science and Technology. He leads UKQAAI’s work in AI, healthcare data science and generative AI, and founded the AcadexMatch academic recruitment platform.',
+      focus: ['Neuroimaging & brain connectomics', 'Healthcare data science', 'Graph neural networks', 'Generative AI', 'Multimodal medical imaging'],
+      highlights: [
+        'Raman Research Award, VIT (2024, 2025, 2026)',
+        'Dr. APJ Abdul Kalam Award, VIT (2024)',
+        'Oracle Cloud Infrastructure Generative AI Certified Professional',
+        'NPTEL (IIT Ropar): Deep Learning; Introduction to Machine Learning',
+      ],
+      links: [
+        { label: 'Portfolio', url: 'https://udayakumar.vercel.app/' },
+        { label: 'Google Scholar', url: 'https://scholar.google.com/citations?user=cV5MPAQAAAAJ' },
+        { label: 'ORCID', url: 'https://orcid.org/0000-0002-6270-9336' },
+      ],
     },
   ],
 

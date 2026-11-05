@@ -49,9 +49,9 @@ export const pages: PageMeta[] = [
   },
   {
     path: '/services',
-    title: 'Services — AI, EdTech, Research, Software, IoT & Quantum',
+    title: 'Services — AI, EdTech, Research, Software, Training, IoT & Quantum',
     description:
-      'Explore UKQAAI services: AI and machine learning, education technology, research computing, software development, IoT and quantum research.',
+      'Explore UKQAAI services: AI and machine learning, EdTech, research computing, software development, training and FDPs, IoT and quantum research.',
     crumbs: [{ name: 'Services', path: '/services' }],
     priority: 0.9,
   },

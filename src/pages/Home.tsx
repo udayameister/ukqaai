@@ -99,7 +99,7 @@ export default function Home() {
 
       {/* Services */}
       <Section labelledBy="services-title">
-        <SectionHeader id="services-title" eyebrow="Core technology services" title="Six domains, one engineering standard." intro="Each service is labelled by maturity, so you always know what is available today and what is still in development or research." />
+        <SectionHeader id="services-title" eyebrow="Core technology services" title="Seven domains, one engineering standard." intro="Each service is labelled by maturity, so you always know what is available today and what is still in development or research." />
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => <ServiceCard key={s.slug} service={s} />)}
         </div>

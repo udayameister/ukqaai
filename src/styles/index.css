@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@import '@fontsource-variable/sora';
 @import '@fontsource-variable/dm-sans';
 
 /* Dark mode is driven by the `dark` class on <html> (see index.html + ThemeToggle). */
@@ -48,7 +47,7 @@
   --color-accent: var(--accent);
   --color-navy: #0a1230;
   --color-navy-deep: #050a1c;
-  --font-display: 'Sora Variable', 'Segoe UI', system-ui, sans-serif;
+  --font-display: 'DM Sans Variable', 'Segoe UI', system-ui, sans-serif;
   --font-sans: 'DM Sans Variable', 'Segoe UI', system-ui, sans-serif;
 }
 

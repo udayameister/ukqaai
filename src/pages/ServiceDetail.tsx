@@ -76,13 +76,13 @@ export default function ServiceDetail() {
       </Section>
 
       <CTASection
-        title={s.status === 'research' ? 'Interested in collaborating?' : `Discuss your ${s.shortTitle.toLowerCase()} project`}
+        title={s.ctaTitle ?? (s.status === 'research' ? 'Interested in collaborating?' : `Discuss your ${s.shortTitle.toLowerCase()} project`)}
         text={s.status === 'research' ? 'We welcome conversations with researchers and organisations exploring this area.' : 'Tell us about your goals and we will outline a practical first step.'}
       />
 
       <Section className="pt-0">
         <h2 className="mb-6 text-xl font-semibold">Other services</h2>
-        <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+        <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {others.map((o) => (
             <li key={o.slug}>
               <Link to={`/services/${o.slug}`} className="card card-hover flex items-center gap-3 p-4 text-sm font-semibold">

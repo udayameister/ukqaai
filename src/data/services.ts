@@ -23,6 +23,8 @@ export interface Service {
   stack: string[]
   industries: string[]
   approach: { title: string; description: string }[]
+  /** Optional heading for the call-to-action at the end of the service page. */
+  ctaTitle?: string
 }
 
 export const statusLabels: Record<ServiceStatus, string> = {
@@ -31,7 +33,7 @@ export const statusLabels: Record<ServiceStatus, string> = {
   research: 'Research initiative',
 }
 
-export const services: Service[] = [
+const allServices: Service[] = [
   {
     slug: 'artificial-intelligence',
     title: 'Artificial Intelligence & Machine Learning',
@@ -240,6 +242,47 @@ export const services: Service[] = [
       { title: 'Prepare', description: 'Help partners build readiness without overpromising.' },
     ],
   },
+  {
+    slug: 'training',
+    title: 'Training, Workshops & Faculty Development Programmes',
+    shortTitle: 'Training & FDPs',
+    icon: 'book',
+    status: 'available',
+    summary:
+      'Hands-on training on recent technologies for IT professionals, college and school faculty, and students — workshops, seminars, FDPs and custom programmes.',
+    ctaTitle: 'Plan a training programme, workshop or FDP',
+    seoTitle: 'AI & Technology Training, Workshops, Seminars and FDPs',
+    seoDescription:
+      'Training on AI, machine learning, generative AI and modern software for IT professionals, faculty development programmes (FDPs), workshops, seminars and student training.',
+    intro:
+      'With more than 16 years of teaching experience and active research in AI, we design and deliver practical training on recent technologies. Programmes are offered for IT professionals, for faculty in colleges, universities and schools, and as special training for students — online or at your campus or office.',
+    problems: [
+      'Teams and faculty who need to keep pace with fast-moving AI and software technologies',
+      'Institutions planning FDPs, workshops or seminars but lacking expert resource persons',
+      'Students who graduate without hands-on exposure to tools used in industry and research',
+      'Generic courses that do not match the level or goals of the participants',
+    ],
+    offerings: [
+      { title: 'Corporate training for IT professionals', description: 'Upskilling programmes for developers and IT teams in AI/ML, generative AI, LLM applications, MLOps and modern web development.' },
+      { title: 'Faculty Development Programmes (FDPs)', description: 'Multi-day FDPs for college and university faculty on AI, deep learning, research methods and outcome-based teaching with technology.' },
+      { title: 'Workshops & seminars', description: 'One- or two-day hands-on workshops, guest lectures and seminars for departments, technical clubs and conferences.' },
+      { title: 'Teacher training for schools', description: 'Practical sessions for school teachers on AI literacy, digital tools and using technology effectively in the classroom.' },
+      { title: 'Special training for students', description: 'Value-added and certificate courses, bootcamps and project-based training on recent technologies, aligned with placements and final-year projects.' },
+      { title: 'Research methodology & publication', description: 'Training on research design, using AI tools responsibly, experiments, writing and publishing in indexed journals.' },
+    ],
+    stack: ['Python', 'Machine Learning', 'Deep Learning', 'Generative AI & LLMs', 'Prompt Engineering', 'Data Science', 'Graph Neural Networks', 'Full-Stack Web', 'Cloud & MLOps', 'IoT', 'Research Tools & LaTeX'],
+    industries: ['IT companies', 'Engineering colleges', 'Universities', 'Arts & science colleges', 'Schools', 'Training institutes'],
+    approach: [
+      { title: 'Understand the audience', description: 'Agree on participants, current level, goals, duration and online or on-site delivery.' },
+      { title: 'Tailor the syllabus', description: 'Share a session-wise plan with topics, hands-on labs and outcomes for approval.' },
+      { title: 'Deliver hands-on', description: 'Live sessions with demonstrations, guided labs and real datasets or projects.' },
+      { title: 'Assess & certify', description: 'Assignments or quizzes, feedback collection and participation or completion certificates.' },
+    ],
+  },
 ]
+
+/** Available services first, then in-development, then research — order otherwise as written above. */
+const rank: Record<ServiceStatus, number> = { available: 0, developing: 1, research: 2 }
+export const services: Service[] = [...allServices].sort((a, b) => rank[a.status] - rank[b.status])
 
 export const getService = (slug: string) => services.find((s) => s.slug === slug)

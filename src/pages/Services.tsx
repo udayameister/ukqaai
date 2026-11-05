@@ -9,7 +9,7 @@ export default function Services() {
   const m = getPageMeta('/services')
   return (
     <>
-      <PageHero crumbs={m.crumbs} eyebrow="Services" title={<>Solutions across <span className="text-gradient">six technology domains.</span></>} intro="From production AI and software to research engineering and frontier exploration. Every service is clearly labelled by maturity.">
+      <PageHero crumbs={m.crumbs} eyebrow="Services" title={<>Solutions across <span className="text-gradient">seven technology domains.</span></>} intro="From production AI and software to research engineering and frontier exploration. Every service is clearly labelled by maturity.">
         <div className="mt-8 flex flex-wrap gap-3 text-sm">
           <Badge tone="green">Available now</Badge><span className="text-muted">We take on client projects today.</span>
         </div>

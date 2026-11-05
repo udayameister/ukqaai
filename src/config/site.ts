@@ -72,7 +72,8 @@ export const site = {
 
   /** Integrations (values come from environment variables at build time). */
   integrations: {
-    web3formsKey: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ?? '',
+    // Web3Forms access keys are public by design (they can only email info@ukqaai.com).
+    web3formsKey: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '04461f73-4d5a-496e-af60-ff49c50b8c9a',
     gaMeasurementId: import.meta.env.VITE_GA_MEASUREMENT_ID ?? '',
   },
 

@@ -75,7 +75,7 @@ GitHub Pages only hosts static files, so the contact form posts to **[Web3Forms]
    - Name `VITE_WEB3FORMS_ACCESS_KEY`, value = your key.
 3. Re-run the workflow (or push any change).
 
-Until the key is set, the form clearly says it is not connected and shows the email address — it never shows a false "sent" message. Spam protection: honeypot field, minimum fill time, server-side checks by Web3Forms, plus validation and a required consent checkbox.
+The current key (form "UKQAAI Website", delivering to info@ukqaai.com) is set in `src/config/site.ts`; a `VITE_WEB3FORMS_ACCESS_KEY` repository variable overrides it. Until a key is set, the form clearly says it is not connected and shows the email address — it never shows a false "sent" message. Spam protection: honeypot field, minimum fill time, server-side checks by Web3Forms, plus validation and a required consent checkbox.
 
 **Google Analytics 4 (optional):** add a repository variable `VITE_GA_MEASUREMENT_ID` (e.g. `G-XXXXXXXXXX`). A consent banner then appears, and GA loads only after a visitor clicks *Accept*. Without the variable, the site loads no tracking scripts and sets no cookies.
 

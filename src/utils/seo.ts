@@ -2,6 +2,7 @@ import { site } from '@/config/site'
 import type { PageMeta } from '@/data/pages'
 import { services } from '@/data/services'
 import { products } from '@/data/products'
+import { openJobs } from '@/data/careers'
 
 /** Public URL for a route — trailing slash to match GitHub Pages folder URLs. */
 export const absoluteUrl = (path: string) => `${site.url}${path === '/' ? '/' : `${path}/`}`
@@ -54,6 +55,23 @@ export function structuredData(m: PageMeta) {
       description: svc.seoDescription,
       provider: { '@id': `${site.url}/#organization` },
       areaServed: 'Worldwide',
+      url: absoluteUrl(m.path),
+    })
+  }
+  const job = openJobs.find((j) => `/careers/${j.slug}` === m.path)
+  if (job) {
+    graph.push({
+      '@type': 'JobPosting',
+      title: job.title,
+      description: `<p>${job.about}</p><p>Duration: ${job.duration}. ${job.commitment}.</p><ul>${job.eligibility.map((e) => `<li>${e}</li>`).join('')}</ul>`,
+      datePosted: job.datePosted,
+      ...(job.applyBy ? { validThrough: job.applyBy } : {}),
+      employmentType: job.employmentType,
+      hiringOrganization: { '@type': 'Organization', name: site.name, sameAs: `${site.url}/`, logo: `${site.url}/images/logo-512.png` },
+      ...(job.remote
+        ? { jobLocationType: 'TELECOMMUTE', applicantLocationRequirements: { '@type': 'Country', name: 'India' } }
+        : {}),
+      directApply: true,
       url: absoluteUrl(m.path),
     })
   }

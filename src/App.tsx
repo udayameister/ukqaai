@@ -8,6 +8,7 @@ import Products from '@/pages/Products'
 import Research from '@/pages/Research'
 import Industries from '@/pages/Industries'
 import Careers from '@/pages/Careers'
+import JobDetail from '@/pages/JobDetail'
 import Contact from '@/pages/Contact'
 import Legal from '@/pages/Legal'
 import NotFound from '@/pages/NotFound'
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="research" element={<Research />} />
         <Route path="industries" element={<Industries />} />
         <Route path="careers" element={<Careers />} />
+        <Route path="careers/:slug" element={<JobDetail />} />
         <Route path="contact" element={<Contact />} />
         {legalPages.map((p) => <Route key={p.path} path={p.path.slice(1)} element={<Legal />} />)}
         <Route path="*" element={<NotFound />} />

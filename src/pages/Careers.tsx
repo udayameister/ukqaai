@@ -3,13 +3,14 @@ import { Icon, type IconName } from '@/components/Icon'
 import { ButtonLink, IconTile, Section, SectionHeader } from '@/components/ui'
 import { getPageMeta } from '@/data/pages'
 import { site } from '@/config/site'
+import { openJobs as openings } from '@/data/careers'
+import { Badge } from '@/components/ui'
+import { Link } from 'react-router-dom'
 
-/** Add real openings here when available. While empty, the page says there are none. */
-const openings: { title: string; type: string; location: string; summary: string }[] = []
 
 const tracks: { icon: IconName; title: string; text: string }[] = [
   { icon: 'briefcase', title: 'Career opportunities', text: 'We hire as projects grow, for AI/ML engineering, full-stack development and research software roles.' },
-  { icon: 'graduation', title: 'Internships', text: 'Students in computer science, AI and data science can express interest in project-based internships.' },
+  { icon: 'graduation', title: 'Internships', text: 'Applications are open for our 2–3 month internship for pre-final and final year engineering students — see current openings below.' },
   { icon: 'handshake', title: 'Research collaboration', text: 'Researchers and PhD scholars interested in deep learning, neuroimaging or scientific ML are welcome to reach out.' },
 ]
 
@@ -41,12 +42,26 @@ export default function Careers() {
             <p className="text-muted">There are no open positions listed at the moment. You are welcome to send your CV for future opportunities, internships or research collaboration.</p>
           </div>
         ) : (
-          <ul className="mt-6 grid gap-4">
+          <ul className="mt-6 grid gap-5">
             {openings.map((o) => (
-              <li key={o.title} className="card p-6">
-                <h3 className="text-lg font-semibold">{o.title}</h3>
-                <p className="text-sm text-muted">{o.type} · {o.location}</p>
-                <p className="mt-2 text-muted">{o.summary}</p>
+              <li key={o.slug} className="card card-hover reveal p-6 sm:p-8">
+                <div className="flex flex-wrap items-center gap-2">
+                  <Badge tone="green">Applications open</Badge>
+                  <span className="rounded-full border border-line px-2.5 py-0.5 text-xs font-semibold text-muted">{o.type}</span>
+                </div>
+                <h3 className="mt-4 text-xl font-semibold sm:text-2xl">
+                  <Link to={`/careers/${o.slug}`} className="hover:text-brand">{o.title}</Link>
+                </h3>
+                <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-muted">
+                  <li className="flex items-center gap-1.5"><Icon name="gauge" className="h-4 w-4 text-brand" />{o.duration}</li>
+                  <li className="flex items-center gap-1.5"><Icon name="globe" className="h-4 w-4 text-brand" />{o.location}</li>
+                  <li className="flex items-center gap-1.5"><Icon name="graduation" className="h-4 w-4 text-brand" />Pre-final & final year</li>
+                </ul>
+                <p className="mt-4 text-muted">{o.summary}</p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <ButtonLink to={`/careers/${o.slug}#apply`}>Apply now</ButtonLink>
+                  <ButtonLink to={`/careers/${o.slug}`} variant="secondary" icon={null}>View full details</ButtonLink>
+                </div>
               </li>
             ))}
           </ul>

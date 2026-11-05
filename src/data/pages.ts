@@ -1,4 +1,5 @@
 import { services } from './services'
+import { openJobs } from './careers'
 
 /**
  * SEO METADATA FOR EVERY PAGE.
@@ -87,6 +88,14 @@ export const pages: PageMeta[] = [
     crumbs: [{ name: 'Careers', path: '/careers' }],
     priority: 0.6,
   },
+  ...openJobs.map((j) => ({
+    path: `/careers/${j.slug}`,
+    title: `${j.title} — Apply Online`,
+    description: j.seoDescription,
+    crumbs: [{ name: 'Careers', path: '/careers' }, { name: 'Internship', path: `/careers/${j.slug}` }],
+    changefreq: 'weekly' as const,
+    priority: 0.7,
+  })),
   {
     path: '/contact',
     title: 'Contact Us',

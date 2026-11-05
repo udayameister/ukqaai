@@ -21,7 +21,7 @@ export function ButtonLink({
       {icon && <Icon name={external ? 'arrowUpRight' : icon} className="h-4 w-4" />}
     </>
   )
-  if (external || /^(https?:|mailto:|tel:)/.test(to)) {
+  if (external || /^(https?:|mailto:|tel:|#)/.test(to)) {
     const isWeb = /^https?:/.test(to)
     return (
       <a href={to} className={cls} {...(isWeb ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>

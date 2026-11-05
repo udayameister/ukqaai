@@ -55,8 +55,10 @@ All content lives in plain data files — no design changes needed for content u
 | Header / footer navigation | `src/data/navigation.ts` |
 | **SEO** titles and descriptions for every page | `src/data/pages.ts` |
 | Privacy, terms, cookie, disclaimer, accessibility text | `src/data/legal.ts` |
-| Job openings (empty = "no open positions" message) | `openings` array in `src/pages/Careers.tsx` |
-| Colours, fonts, design tokens | `src/styles/index.css` (top of file) |
+| Job openings / internships (each gets its own page + application form; set `open: false` to close) | `src/data/careers.ts` |
+| Research collaboration form options (areas, collaboration types…) | `collaborationOptions` in `src/components/CollaborationForm.tsx` |
+| Office address and Google Map location | `contact.address`, `contact.mapQuery` in `src/config/site.ts` |
+| Colours, fonts (DM Sans, self-hosted), design tokens | `src/styles/index.css` (top of file) |
 | Logo component / favicon / social image | `src/components/Logo.tsx`, `public/favicon.svg`, `public/images/og-image.png` |
 | Images | put files in `public/images/` and reference them as `/images/name.png` |
 
@@ -80,6 +82,16 @@ The current key (form "UKQAAI Website", delivering to info@ukqaai.com) is set in
 **Google Analytics 4 (optional):** add a repository variable `VITE_GA_MEASUREMENT_ID` (e.g. `G-XXXXXXXXXX`). A consent banner then appears, and GA loads only after a visitor clicks *Accept*. Without the variable, the site loads no tracking scripts and sets no cookies.
 
 For local testing, copy `.env.example` to `.env.local` and fill in the values. Never commit `.env.local`.
+
+### Where form submissions go
+
+All three forms send email to **info@ukqaai.com** through Web3Forms (free plan: 250 submissions/month):
+
+| Form | Page | Email subject |
+|---|---|---|
+| Contact | `/contact` | `[ukqaai.com] <subject>` |
+| Internship application | `/careers/<job-slug>` | `[Internship application] <name> — <track>` |
+| Research collaboration | `/research#collaborate` | `[Research collaboration] <topic> — <organisation>` |
 
 ## 5. One-time GitHub Pages setup
 

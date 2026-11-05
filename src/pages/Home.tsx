@@ -66,7 +66,7 @@ export default function Home() {
             </div>
             <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
               <li className="flex items-center gap-2"><Icon name="flask" className="h-4 w-4 text-brand" />Research-driven</li>
-              <li className="flex items-center gap-2"><Icon name="globe" className="h-4 w-4 text-brand" />Based in {site.contact.region} · open to projects worldwide</li>
+              <li className="flex items-center gap-2"><Icon name="globe" className="h-4 w-4 text-brand" />Based in Tamil Nadu, India · open to projects worldwide</li>
             </ul>
           </div>
           <HeroVisual />

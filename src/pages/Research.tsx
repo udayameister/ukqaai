@@ -54,7 +54,7 @@ export default function Research() {
 
       <section id="collaborate" aria-labelledby="collab-title" className="scroll-mt-32 border-t border-line py-20 sm:py-24">
         <div className="container-x grid gap-10 lg:grid-cols-[1fr_1.6fr]">
-          <div className="reveal lg:sticky lg:top-24 lg:self-start">
+          <div className="reveal lg:sticky lg:top-32 lg:self-start">
             <p className="eyebrow mb-4">Research collaboration</p>
             <h2 id="collab-title" className="text-3xl font-semibold">Propose a new research topic</h2>
             <p className="mt-4 text-muted">We welcome collaboration with universities, hospitals and research groups on AI for neuroimaging, scientific machine learning and research software.</p>

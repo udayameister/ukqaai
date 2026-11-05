@@ -85,17 +85,14 @@ export default function JobDetail() {
             </section>
           </div>
 
-          <aside aria-label="Internship summary" className="lg:sticky lg:top-24 lg:self-start">
+          <aside aria-label="Internship summary" className="lg:sticky lg:top-32 lg:self-start">
             <div className="card p-6">
               <h2 className="text-lg font-semibold">At a glance</h2>
               <dl className="mt-4 space-y-4">
                 {facts.map((x) => (
-                  <div key={x.label} className="flex gap-3">
-                    <Icon name={x.icon} className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
-                    <div>
-                      <dt className="text-xs font-semibold uppercase tracking-wider text-muted">{x.label}</dt>
-                      <dd className="text-sm text-fg">{x.value}</dd>
-                    </div>
+                  <div key={x.label}>
+                    <dt className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted"><Icon name={x.icon} className="h-4 w-4 shrink-0 text-brand" />{x.label}</dt>
+                    <dd className="mt-1 pl-6 text-sm text-fg">{x.value}</dd>
                   </div>
                 ))}
               </dl>

@@ -215,7 +215,7 @@ export function CollaborationForm() {
         <button type="submit" disabled={state === 'sending'} className="bg-brand-gradient inline-flex min-h-11 items-center gap-2 rounded-full px-6 text-sm font-semibold text-white transition hover:brightness-110 disabled:opacity-60">
           {state === 'sending' ? <><Icon name="loader" className="h-4 w-4 animate-spin" />Sending…</> : <>Submit proposal<Icon name="send" className="h-4 w-4" /></>}
         </button>
-        <p className="text-xs text-muted">Prefer email? Write to <a className="text-brand" href={`mailto:${site.contact.email}?subject=${encodeURIComponent('Research collaboration')}`}>{site.contact.email}</a>.</p>
+        <p className="text-xs text-muted">Prefer email? Write to <a className="text-brand underline underline-offset-4" href={`mailto:${site.contact.email}?subject=${encodeURIComponent('Research collaboration')}`}>{site.contact.email}</a>.</p>
       </div>
     </form>
   )

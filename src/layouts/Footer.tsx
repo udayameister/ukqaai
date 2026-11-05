@@ -32,7 +32,7 @@ export function Footer() {
         </div>
 
         <FooterCol title="Services" links={services.map((s) => ({ label: s.shortTitle, to: `/services/${s.slug}` }))} />
-        <FooterCol title="Products" links={[{ label: 'All products', to: '/products' }, ...products.map((p) => ({ label: p.name, to: p.url, external: true }))]} />
+        <FooterCol title="Products" links={[{ label: 'All products', to: '/products' }, ...products.map((p) => (p.status === 'coming-soon' ? { label: `${p.name} (soon)`, to: '/products' } : { label: p.name, to: p.url, external: true }))]} />
         <FooterCol title="Company" links={footerNav.Company} />
         <FooterCol title="Legal" links={footerNav.Legal} />
       </div>

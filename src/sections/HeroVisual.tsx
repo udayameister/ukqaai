@@ -22,17 +22,17 @@ export function HeroVisual() {
       <svg viewBox="0 0 500 500" className="anim-float relative h-full w-full">
         <defs>
           <linearGradient id="hv-edge" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#3d7bff" />
-            <stop offset="1" stopColor="#8a5cff" />
+            <stop offset="0" style={{ stopColor: 'var(--mark-a)' }} />
+            <stop offset="1" style={{ stopColor: 'var(--mark-b)' }} />
           </linearGradient>
           <radialGradient id="hv-core">
-            <stop offset="0" stopColor="#8fb3ff" />
-            <stop offset="1" stopColor="#3d7bff" />
+            <stop offset="0" style={{ stopColor: 'var(--node-core)' }} />
+            <stop offset="1" style={{ stopColor: 'var(--mark-a)' }} />
           </radialGradient>
         </defs>
         <g className="anim-orbit">
           <ellipse cx="255" cy="245" rx="235" ry="92" fill="none" stroke="url(#hv-edge)" strokeOpacity=".28" strokeWidth="1.2" transform="rotate(-24 255 245)" />
-          <circle cx="40" cy="300" r="5" fill="#8a5cff" />
+          <circle cx="40" cy="300" r="5" style={{ fill: 'var(--mark-b)' }} />
         </g>
         <circle cx="255" cy="245" r="200" fill="none" stroke="url(#hv-edge)" strokeOpacity=".5" strokeWidth="2" />
         <circle cx="255" cy="245" r="150" fill="none" stroke="var(--line)" strokeWidth="1" strokeDasharray="2 6" />
@@ -43,12 +43,12 @@ export function HeroVisual() {
         </g>
         {nodes.map(([x, y, r], i) => (
           <g key={i}>
-            <circle cx={x} cy={y} r={r * 2.4} fill="#3d7bff" opacity=".12" />
-            <circle cx={x} cy={y} r={r} fill={i === 12 ? 'url(#hv-core)' : i % 2 ? '#8a5cff' : '#5b93ff'} className="anim-pulse" style={{ animationDelay: `${(i * 0.37) % 3}s` }} />
+            <circle cx={x} cy={y} r={r * 2.4} style={{ fill: 'var(--mark-a)' }} opacity=".12" />
+            <circle cx={x} cy={y} r={r} fill={i === 12 ? 'url(#hv-core)' : undefined} className="anim-pulse" style={{ animationDelay: `${(i * 0.37) % 3}s`, ...(i === 12 ? {} : { fill: i % 2 ? 'var(--mark-b)' : 'var(--node-a)' }) }} />
           </g>
         ))}
         <path d="M398 393 L440 435 H482" fill="none" stroke="url(#hv-edge)" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
-        <circle cx="484" cy="435" r="6" fill="#8a5cff" />
+        <circle cx="484" cy="435" r="6" style={{ fill: 'var(--mark-b)' }} />
       </svg>
       {chips.map((c) => (
         <span key={c.label} className="card absolute hidden px-3 py-1.5 text-xs font-semibold text-fg shadow-lg shadow-black/10 backdrop-blur sm:block" style={{ left: c.x, top: c.y }}>

@@ -9,16 +9,32 @@
    Light values live on :root, dark values on .dark.
    ------------------------------------------------------------------ */
 :root {
-  --bg: #f6f8fd;
+  /* Day (light) theme — light maroon */
+  --bg: #fcf6f7;
   --surface: #ffffff;
-  --surface-2: #eef2fb;
-  --fg: #0a1230;
-  --muted: #4a5578;
-  --line: rgb(10 18 48 / 0.1);
-  --brand: #1f5eff; /* electric blue */
-  --accent: #6a46f5; /* subtle violet */
-  --ring: #1f5eff;
-  --glow: rgb(31 94 255 / 0.12);
+  --surface-2: #f7e9ec;
+  --fg: #2b0d16;
+  --muted: #6e4a54;
+  --line: rgb(122 18 48 / 0.12);
+  --brand: #8b1d3f; /* maroon */
+  --accent: #b4475f; /* rose */
+  --ring: #8b1d3f;
+  --glow: rgb(139 29 63 / 0.14);
+  --grad-a: #7a1a37;
+  --grad-b: #b23a5c;
+  --btn-shadow: rgb(122 26 55 / 0.45);
+  --mark-a: #8b1d3f;
+  --mark-b: #c2566f;
+  --node-a: #a23356;
+  --node-core: #e7a3b3;
+  --bar-bg: #5a1027;
+  --bar-fg: #f6dde3;
+  --bar-icon: #f2a7b8;
+  --cta-bg: #4a0d20;
+  --cta-glow-a: rgb(194 86 111 / 0.4);
+  --cta-glow-b: rgb(139 29 63 / 0.45);
+  --cta-fg: #f3d9df;
+  --selection: rgb(139 29 63 / 0.2);
   color-scheme: light;
 }
 
@@ -33,6 +49,21 @@
   --accent: #9a7bff;
   --ring: #7aa7ff;
   --glow: rgb(91 147 255 / 0.18);
+  --grad-a: #1f5eff;
+  --grad-b: #5b3df0;
+  --btn-shadow: rgb(31 94 255 / 0.7);
+  --mark-a: #3d7bff;
+  --mark-b: #8a5cff;
+  --node-a: #5b93ff;
+  --node-core: #8fb3ff;
+  --bar-bg: #050a1c;
+  --bar-fg: #c3cbe4;
+  --bar-icon: #7aa7ff;
+  --cta-bg: #050a1c;
+  --cta-glow-a: rgb(61 123 255 / 0.35);
+  --cta-glow-b: rgb(138 92 255 / 0.3);
+  --cta-fg: #c3cbe4;
+  --selection: rgb(31 94 255 / 0.25);
   color-scheme: dark;
 }
 
@@ -74,7 +105,7 @@
     outline-offset: 3px;
     border-radius: 6px;
   }
-  ::selection { background: rgb(31 94 255 / 0.25); }
+  ::selection { background: var(--selection); }
 }
 
 @layer components {
@@ -88,7 +119,7 @@
     color: transparent;
   }
   .bg-brand-gradient {
-    background-image: linear-gradient(120deg, #1f5eff 0%, #5b3df0 100%);
+    background-image: linear-gradient(120deg, var(--grad-a) 0%, var(--grad-b) 100%);
   }
   .card {
     @apply rounded-2xl border border-line bg-surface;

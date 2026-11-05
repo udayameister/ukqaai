@@ -203,7 +203,7 @@ export function CollaborationForm() {
 
       <div className="mt-8">
         <div className="flex items-start gap-3">
-          <input id="col-consent" type="checkbox" checked={f.consent} onChange={(e) => set('consent', e.target.checked)} className="mt-1 h-5 w-5 shrink-0 accent-[#1f5eff]" {...aria('consent')} />
+          <input id="col-consent" type="checkbox" checked={f.consent} onChange={(e) => set('consent', e.target.checked)} className="mt-1 h-5 w-5 shrink-0 accent-[var(--brand)]" {...aria('consent')} />
           <label htmlFor="col-consent" className="text-sm text-muted">
             I agree that {site.name} may use these details to review my proposal and contact me, as described in the <Link to="/privacy-policy" className="text-brand underline underline-offset-4">privacy policy</Link>. Please do not include patient-identifiable or confidential data in this form. <span aria-hidden="true" className="text-red-500">*</span>
           </label>

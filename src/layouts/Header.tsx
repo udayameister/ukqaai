@@ -41,13 +41,13 @@ export function Header() {
 
   return (
     <header className={`sticky top-0 z-50 border-b transition-colors duration-300 ${scrolled || mobileOpen ? 'border-line bg-bg/85 backdrop-blur-xl' : 'border-transparent bg-transparent'}`}>
-      <div className="border-b border-line bg-navy-deep text-[#c3cbe4]">
+      <div className="border-b border-line bg-[var(--bar-bg)] text-[var(--bar-fg)]">
         <div className="container-x flex h-8 items-center justify-between gap-4 text-xs">
           <a href={`mailto:${site.contact.email}`} className="inline-flex items-center gap-1.5 font-medium hover:text-white">
-            <Icon name="mail" className="h-3.5 w-3.5 text-[#7aa7ff]" />{site.contact.email}
+            <Icon name="mail" className="h-3.5 w-3.5 text-[var(--bar-icon)]" />{site.contact.email}
           </a>
           <a href={mapsLink} target="_blank" rel="noopener noreferrer" className="hidden items-center gap-1.5 hover:text-white sm:inline-flex">
-            <Icon name="mapPin" className="h-3.5 w-3.5 text-[#7aa7ff]" />Panruti, Tamil Nadu, India<span className="sr-only"> (opens Google Maps in a new tab)</span>
+            <Icon name="mapPin" className="h-3.5 w-3.5 text-[var(--bar-icon)]" />Panruti, Tamil Nadu, India<span className="sr-only"> (opens Google Maps in a new tab)</span>
           </a>
         </div>
       </div>

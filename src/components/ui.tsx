@@ -6,7 +6,7 @@ type Variant = 'primary' | 'secondary' | 'ghost'
 const base =
   'inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition duration-200 focus-visible:outline-offset-4'
 const variants: Record<Variant, string> = {
-  primary: 'bg-brand-gradient text-white shadow-[0_10px_30px_-12px_rgb(31_94_255/0.7)] hover:brightness-110',
+  primary: 'bg-brand-gradient text-white shadow-[0_10px_30px_-12px_var(--btn-shadow)] hover:brightness-110',
   secondary: 'border border-line bg-surface text-fg hover:border-brand/50',
   ghost: 'text-fg hover:text-brand',
 }

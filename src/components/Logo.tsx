@@ -10,8 +10,8 @@ export function LogoMark({ className = 'h-9 w-9', title }: { className?: string;
     <svg viewBox="0 0 64 64" className={className} role={title ? 'img' : undefined} aria-hidden={title ? undefined : true} aria-label={title}>
       <defs>
         <linearGradient id={`g-${id}`} x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#3d7bff" />
-          <stop offset="1" stopColor="#8a5cff" />
+          <stop offset="0" style={{ stopColor: 'var(--mark-a)' }} />
+          <stop offset="1" style={{ stopColor: 'var(--mark-b)' }} />
         </linearGradient>
       </defs>
       <ellipse cx="30" cy="29" rx="27" ry="10" fill="none" stroke={`url(#g-${id})`} strokeOpacity=".35" strokeWidth="1.5" transform="rotate(-28 30 29)" />
@@ -33,7 +33,7 @@ export function LogoMark({ className = 'h-9 w-9', title }: { className?: string;
         <circle cx="21" cy="35" r="2.1" />
       </g>
       <path d="M42 42 L49 49 H58" fill="none" stroke={`url(#g-${id})`} strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="58.5" cy="49" r="3" fill="#8a5cff" />
+      <circle cx="58.5" cy="49" r="3" style={{ fill: 'var(--mark-b)' }} />
     </svg>
   )
 }

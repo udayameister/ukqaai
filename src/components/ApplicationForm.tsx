@@ -220,7 +220,7 @@ export function ApplicationForm({ job }: { job: JobOpening }) {
 
       <div className="mt-8">
         <div className="flex items-start gap-3">
-          <input id="app-consent" type="checkbox" checked={f.consent} onChange={(e) => set('consent', e.target.checked)} className="mt-1 h-5 w-5 shrink-0 accent-[#1f5eff]" {...aria('consent')} />
+          <input id="app-consent" type="checkbox" checked={f.consent} onChange={(e) => set('consent', e.target.checked)} className="mt-1 h-5 w-5 shrink-0 accent-[var(--brand)]" {...aria('consent')} />
           <label htmlFor="app-consent" className="text-sm text-muted">
             I confirm the information above is accurate, and I agree that {site.name} may use these details to assess my application and contact me, as described in the <Link to="/privacy-policy" className="text-brand underline underline-offset-4">privacy policy</Link>. <span aria-hidden="true" className="text-red-500">*</span>
           </label>

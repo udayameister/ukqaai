@@ -158,7 +158,7 @@ export function ContactForm() {
         </div>
         <div className="sm:col-span-2">
           <div className="flex items-start gap-3">
-            <input id="consent" name="consent" type="checkbox" checked={fields.consent} onChange={(e) => set('consent', e.target.checked)} className="mt-1 h-5 w-5 shrink-0 accent-[#1f5eff]" {...described('consent')} />
+            <input id="consent" name="consent" type="checkbox" checked={fields.consent} onChange={(e) => set('consent', e.target.checked)} className="mt-1 h-5 w-5 shrink-0 accent-[var(--brand)]" {...described('consent')} />
             <label htmlFor="consent" className="text-sm text-muted">
               I agree that {site.name} may use these details to reply to my enquiry, as described in the <Link to="/privacy-policy" className="text-brand underline underline-offset-4">privacy policy</Link>. <span aria-hidden="true" className="text-red-500">*</span>
             </label>

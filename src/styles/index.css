@@ -85,6 +85,8 @@
 @layer base {
   html {
     -webkit-text-size-adjust: 100%;
+    /* All text (and rem-based spacing) is 10% larger than the browser default. */
+    font-size: 110%;
     overflow-x: clip;
     scroll-behavior: smooth;
   }

@@ -8,6 +8,7 @@ import { footerNav } from '@/data/navigation'
 import { services } from '@/data/services'
 import { products } from '@/data/products'
 import { analyticsEnabled } from '@/utils/analytics'
+import { VisitCounter } from '@/components/VisitCounter'
 
 export function Footer() {
   const socials = site.social.filter((s) => s.url)
@@ -39,7 +40,8 @@ export function Footer() {
       <div className="border-t border-line">
         <div className="container-x flex flex-col gap-3 py-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} {displayLegalName}. All rights reserved.</p>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <VisitCounter />
             {analyticsEnabled() && (
               <button type="button" className="hover:text-fg" onClick={() => window.dispatchEvent(new Event(OPEN_COOKIE_SETTINGS))}>Cookie settings</button>
             )}

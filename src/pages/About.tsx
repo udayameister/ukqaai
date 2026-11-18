@@ -53,7 +53,7 @@ export default function About() {
 
       <Section labelledBy="approach-title" className="border-y border-line bg-surface/50">
         <SectionHeader id="approach-title" eyebrow="Our approach" title="How we turn ideas into dependable systems." />
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="stagger grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {approach.map((a) => (
             <div key={a.title} className="card reveal p-6">
               <Icon name={a.icon} className="h-6 w-6 text-brand" />

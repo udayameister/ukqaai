@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
-import { HeroVisual } from '@/sections/HeroVisual'
+import { HeroBackdrop } from '@/sections/HeroBackdrop'
+import { HeroGlobe } from '@/sections/HeroGlobe'
+import { CountUp, Marquee, RotatingWords } from '@/components/Motion'
 import { CTASection } from '@/components/CTASection'
 import { ServiceCard } from '@/components/ServiceCard'
 import { ProductCard } from '@/components/ProductCard'
@@ -7,7 +9,7 @@ import { Icon, type IconName } from '@/components/Icon'
 import { ButtonLink, IconTile, Section, SectionHeader } from '@/components/ui'
 import { services } from '@/data/services'
 import { products } from '@/data/products'
-import { researchAreas } from '@/data/research'
+import { publications, researchAreas } from '@/data/research'
 import { industries } from '@/data/industries'
 import { site } from '@/config/site'
 
@@ -45,14 +47,13 @@ export default function Home() {
   const [featured, ...others] = products
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden" aria-labelledby="hero-title">
-        <div className="grid-bg pointer-events-none absolute inset-0" aria-hidden="true" />
-        <div className="pointer-events-none absolute -left-40 top-10 h-[460px] w-[460px] rounded-full bg-accent/15 blur-3xl" aria-hidden="true" />
-        <div className="container-x relative grid items-center gap-12 pb-16 pt-12 sm:pt-16 lg:grid-cols-[1.1fr_1fr] lg:pb-24 lg:pt-20">
-          <div>
+      {/* Hero — full-bleed, video-style motion */}
+      <section className="relative flex min-h-[calc(100svh-104px)] flex-col overflow-hidden" aria-labelledby="hero-title">
+        <HeroBackdrop />
+        <div className="container-x relative grid flex-1 items-center gap-10 pb-10 pt-10 sm:pt-14 lg:grid-cols-[1.1fr_1fr] lg:pb-16">
+          <div className="hero-rise">
             <p className="eyebrow mb-6">
-              <span className="h-px w-8 bg-brand" aria-hidden="true" /> AI · Software · Research
+              <span className="h-px w-8 bg-brand" aria-hidden="true" /> AI · Software · Research · Training
             </p>
             <h1 id="hero-title" className="text-[2.6rem] font-semibold leading-[1.06] sm:text-6xl lg:text-[4.1rem]">
               Engineering Intelligence. <span className="text-gradient">Empowering Innovation.</span>
@@ -60,21 +61,59 @@ export default function Home() {
             <p className="mt-6 max-w-xl text-lg text-muted sm:text-xl">
               Transforming ideas into intelligent solutions through Artificial Intelligence, advanced software engineering and research-driven innovation.
             </p>
+            <p className="mt-5 text-base text-muted sm:text-lg">
+              We build <RotatingWords words={['AI agents & automation', 'machine learning models', 'research software', 'EdTech platforms', 'FDPs & workshops', 'web & SaaS products']} />
+            </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <ButtonLink to="/services">Explore Our Solutions</ButtonLink>
               <ButtonLink to="/contact" variant="secondary" icon={null}>Contact Our Team</ButtonLink>
             </div>
-            <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
-              <li className="flex items-center gap-2"><Icon name="flask" className="h-4 w-4 text-brand" />Research-driven</li>
-              <li className="flex items-center gap-2"><Icon name="globe" className="h-4 w-4 text-brand" />Based in Tamil Nadu, India · open to projects worldwide</li>
-            </ul>
           </div>
-          <HeroVisual />
+          <div className="relative mx-auto aspect-square w-full max-w-[560px]" aria-hidden="true">
+            <div className="absolute inset-[6%] rounded-full bg-[radial-gradient(circle,var(--glow),transparent_70%)]" />
+            <HeroGlobe />
+            {[
+              { label: 'Machine Learning', cls: 'left-[2%] top-[14%]' },
+              { label: 'Research', cls: 'right-[4%] top-[8%]' },
+              { label: 'Software', cls: 'right-[0%] bottom-[18%]' },
+              { label: 'Quantum R&D', cls: 'left-[0%] bottom-[12%]' },
+            ].map((c, i) => (
+              <span key={c.label} className={`card anim-float absolute hidden px-3 py-1.5 text-xs font-semibold text-fg shadow-lg shadow-black/10 backdrop-blur sm:block ${c.cls}`} style={{ animationDelay: `${i * -1.7}s` }}>
+                {c.label}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Stats strip */}
+        <div className="container-x relative pb-8">
+          <dl className="stagger grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-4">
+            {[
+              { n: 16, suffix: '+', label: 'Years in academia & research' },
+              { n: publications.length, suffix: '', label: 'Peer-reviewed publications' },
+              { n: services.length, suffix: '', label: 'Technology domains' },
+              { n: products.length, suffix: '', label: 'Platforms of our own' },
+            ].map((s) => (
+              <div key={s.label} className="reveal bg-bg/80 px-5 py-5 backdrop-blur">
+                <dt className="text-sm text-muted">{s.label}</dt>
+                <dd className="mt-1 font-display text-3xl font-semibold text-fg sm:text-4xl"><CountUp to={s.n} suffix={s.suffix} /></dd>
+              </div>
+            ))}
+          </dl>
+          <a href="#intro-title" className="mx-auto mt-6 hidden w-fit flex-col items-center gap-1 text-xs text-muted hover:text-fg sm:flex">
+            Scroll to explore
+            <svg viewBox="0 0 24 24" className="scroll-cue h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+          </a>
         </div>
       </section>
 
+      {/* Technology ticker */}
+      <div className="border-y border-line bg-surface/50 py-6" aria-label="Technologies we work with">
+        <Marquee items={['Python', 'PyTorch', 'Graph Neural Networks', 'Generative AI', 'LLM Agents', 'React', 'Next.js', 'TypeScript', 'Node.js', 'FastAPI', 'PostgreSQL', 'Docker', 'Computer Vision', 'NLP', 'IoT', 'Qiskit', 'Medical Imaging', 'MLOps']} />
+      </div>
+
       {/* Intro */}
-      <Section labelledBy="intro-title" className="border-y border-line bg-surface/50">
+      <Section labelledBy="intro-title" className="border-b border-line">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:items-start">
           <div className="reveal">
             <p className="eyebrow mb-4">Who we are</p>
@@ -100,7 +139,7 @@ export default function Home() {
       {/* Services */}
       <Section labelledBy="services-title">
         <SectionHeader id="services-title" eyebrow="Core technology services" title="Seven domains, one engineering standard." intro="Each service is labelled by maturity, so you always know what is available today and what is still in development or research." />
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="stagger grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => <ServiceCard key={s.slug} service={s} />)}
         </div>
       </Section>
@@ -124,7 +163,7 @@ export default function Home() {
       {/* Why choose */}
       <Section labelledBy="why-title">
         <SectionHeader id="why-title" eyebrow="Why choose UKQAAI?" title="Focused, research-led and serious about quality." />
-        <div className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+        <div className="stagger grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
           {reasons.map((r) => (
             <div key={r.title} className="reveal bg-bg p-7">
               <Icon name={r.icon} className="h-6 w-6 text-brand" />
@@ -159,7 +198,7 @@ export default function Home() {
             <p className="mt-4 text-lg text-muted">Our research spans graph neural networks for brain connectomics, medical imaging, physics-informed learning and emerging quantum methods.</p>
             <ButtonLink to="/research" variant="secondary" className="mt-8">Explore our research</ButtonLink>
           </div>
-          <ul className="grid gap-4 sm:grid-cols-2">
+          <ul className="stagger grid gap-4 sm:grid-cols-2">
             {researchAreas.map((a) => (
               <li key={a.title} className="card reveal p-5">
                 <div className="flex items-center gap-3"><Icon name={a.icon} className="h-5 w-5 text-accent" /><h3 className="text-base font-semibold">{a.title}</h3></div>
@@ -173,7 +212,7 @@ export default function Home() {
       {/* Industries */}
       <Section labelledBy="ind-title" className="border-y border-line bg-surface/50">
         <SectionHeader id="ind-title" eyebrow="Industry solutions" title="Built for the sectors we understand." />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="stagger grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {industries.map((i) => (
             <Link key={i.id} to={`/industries#${i.id}`} className="card card-hover reveal flex items-start gap-4 p-6">
               <IconTile name={i.icon} />
@@ -189,7 +228,7 @@ export default function Home() {
       {/* Process */}
       <Section labelledBy="process-title">
         <SectionHeader id="process-title" eyebrow="How we work" title="A clear, collaborative engagement process." />
-        <ol className="grid gap-5 md:grid-cols-5">
+        <ol className="stagger grid gap-5 md:grid-cols-5">
           {process.map((p, i) => (
             <li key={p.title} className="reveal relative">
               <span className="font-display text-sm font-semibold text-brand">0{i + 1}</span>

@@ -10,7 +10,7 @@ export default function Industries() {
     <>
       <PageHero crumbs={m.crumbs} eyebrow="Industries" title={<>Technology shaped by <span className="text-gradient">sector knowledge.</span></>} intro="We focus on sectors where our research and experience give us real insight." />
       <Section>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="stagger grid gap-6 md:grid-cols-2">
           {industries.map((i) => (
             <section key={i.id} id={i.id} aria-labelledby={`${i.id}-t`} className="card reveal scroll-mt-32 p-7 sm:p-8">
               <IconTile name={i.icon} />

@@ -23,7 +23,7 @@ export default function Careers() {
 
       <Section labelledBy="tracks-title">
         <SectionHeader id="tracks-title" eyebrow="Ways to join" title="Opportunities at UKQAAI" />
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="stagger grid gap-5 md:grid-cols-3">
           {tracks.map((t) => (
             <div key={t.title} className="card reveal p-7">
               <IconTile name={t.icon} />

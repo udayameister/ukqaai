@@ -32,7 +32,7 @@ export default function ServiceDetail() {
 
       <Section labelledBy="offer-title" className="border-y border-line bg-surface/50">
         <SectionHeader id="offer-title" eyebrow="Services offered" title={s.status === 'research' ? 'What this initiative covers' : 'What we offer'} />
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="stagger grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {s.offerings.map((o) => (
             <div key={o.title} className="card reveal p-6">
               <Icon name={s.icon} className="h-5 w-5 text-brand" />
@@ -64,7 +64,7 @@ export default function ServiceDetail() {
 
       <Section labelledBy="approach-title" className="border-y border-line bg-surface/50">
         <SectionHeader id="approach-title" eyebrow="Development approach" title="How we work on it" />
-        <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="stagger grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {s.approach.map((a, i) => (
             <li key={a.title} className="card reveal p-6">
               <span className="font-display text-sm font-semibold text-brand">Step {i + 1}</span>

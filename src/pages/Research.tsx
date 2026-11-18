@@ -16,7 +16,7 @@ export default function Research() {
 
       <Section labelledBy="areas-title">
         <SectionHeader id="areas-title" eyebrow="Focus areas" title="What we work on" />
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="stagger grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {researchAreas.map((a) => (
             <div key={a.title} className="card reveal p-6">
               <IconTile name={a.icon} />

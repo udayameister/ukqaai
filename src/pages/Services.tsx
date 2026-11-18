@@ -22,7 +22,7 @@ export default function Services() {
       </PageHero>
       <Section>
         <h2 className="sr-only">All services</h2>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="stagger grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => <ServiceCard key={s.slug} service={s} />)}
         </div>
       </Section>

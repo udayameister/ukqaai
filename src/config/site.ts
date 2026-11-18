@@ -80,6 +80,18 @@ export const site = {
     gaMeasurementId: import.meta.env.VITE_GA_MEASUREMENT_ID ?? '',
   },
 
+  /**
+   * Search-engine ownership verification (paste only the content value, e.g. 'AbCd123…').
+   * Google Search Console → "HTML tag" method; Bing Webmaster Tools → "Meta tag" method.
+   * DNS (TXT record) verification at GoDaddy also works and needs nothing here.
+   */
+  verification: {
+    google: '',
+    bing: '',
+  },
+  /** IndexNow key — the file public/<key>.txt must exist. Used to notify Bing, Yandex and others on each deploy. */
+  indexNowKey: 'b8b480acee77f540cfee06e9b6a89e38',
+
   ogImage: '/images/og-image.png',
   themeColor: '#050a1c',
 }

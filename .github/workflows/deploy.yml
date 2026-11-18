@@ -74,3 +74,21 @@ jobs:
             echo "### ❌ Deployment failed — open this run's logs for details" >> "$GITHUB_STEP_SUMMARY"
             exit 1
           fi
+
+  notify-search-engines:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Notify Bing, Yandex and other IndexNow search engines
+        continue-on-error: true
+        run: |
+          KEY=$(grep -oP "indexNowKey: '\\K[0-9a-f]+" src/config/site.ts)
+          sleep 30  # give GitHub Pages a moment to serve the new files
+          URLS=$(curl -fsS https://www.ukqaai.com/sitemap.xml | grep -oP '(?<=<loc>)[^<]+' | jq -R . | jq -sc .)
+          BODY=$(jq -nc --arg key "$KEY" --argjson urls "$URLS" '{host:"www.ukqaai.com", key:$key, keyLocation:("https://www.ukqaai.com/" + $key + ".txt"), urlList:$urls}')
+          CODE=$(curl -s -o /tmp/resp -w '%{http_code}' -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json; charset=utf-8' -d "$BODY")
+          echo "IndexNow responded HTTP $CODE for $(echo "$URLS" | jq length) URLs"
+          echo "### 🔎 IndexNow: HTTP $CODE ($(echo "$URLS" | jq length) URLs submitted)" >> "$GITHUB_STEP_SUMMARY"

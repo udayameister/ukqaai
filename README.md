@@ -135,12 +135,22 @@ dig ukqaai.com +noall +answer -t A     # → the four 185.199.x.153 addresses
 
 Then return to **Settings → Pages**: wait for "DNS check successful", wait for the HTTPS certificate, and tick **Enforce HTTPS**.
 
-## 7. SEO checklist after launch
+## 7. Search engines (Google, Bing and others)
 
-- Add the site to **Google Search Console** (Domain property → verify with a TXT record at GoDaddy) and submit `https://www.ukqaai.com/sitemap.xml`.
-- Add it to **Bing Webmaster Tools** (it can import from Search Console).
-- Test the social preview with LinkedIn Post Inspector / an X card validator.
-- `sitemap.xml` and `robots.txt` are regenerated on every build from `src/data/pages.ts`.
+**Automatic (already set up):** after every deploy, the workflow job *notify-search-engines* submits all sitemap URLs to **IndexNow**, which Bing (and therefore Yahoo and DuckDuckGo), Yandex, Seznam, Naver and Yep share. The key file is `public/<indexNowKey>.txt`; the key lives in `src/config/site.ts`. The result is shown in each Actions run summary.
+
+**Google (one-time, needs the owner's Google sign-in):**
+1. Open https://search.google.com/search-console → **Add property** → **Domain** → `ukqaai.com`.
+2. Google shows a TXT record (`google-site-verification=…`). In GoDaddy → DNS → **Add New Record**: Type `TXT`, Name `@`, Value = that text. Keep all other records.
+3. Back in Search Console click **Verify** (may take a few minutes to a few hours).
+4. **Sitemaps** → submit `https://www.ukqaai.com/sitemap.xml`.
+5. **URL Inspection** → enter `https://www.ukqaai.com/` → **Request indexing** (repeat for key pages such as /services/, /careers/engineering-internship/).
+
+Alternative: choose the **URL prefix** property `https://www.ukqaai.com/` with the **HTML tag** method, paste the `content` value into `verification.google` in `src/config/site.ts`, push, then click Verify.
+
+**Bing Webmaster Tools (optional, gives reports):** https://www.bing.com/webmasters → sign in → **Import from Google Search Console** (fastest) or add the site and verify with a DNS TXT/CNAME or the meta tag (`verification.bing`).
+
+New sites typically appear in results within a few days to a few weeks. Check with a search for `site:ukqaai.com`.
 
 ## 8. Project structure
 

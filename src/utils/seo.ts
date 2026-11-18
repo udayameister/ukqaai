@@ -111,6 +111,8 @@ export function headTags(m: PageMeta): HeadTag[] {
     { tag: 'meta', attrs: { name: 'twitter:description', content: m.description } },
     { tag: 'meta', attrs: { name: 'twitter:image', content: image } },
   ]
+  if (site.verification.google) tags.push({ tag: 'meta', attrs: { name: 'google-site-verification', content: site.verification.google } })
+  if (site.verification.bing) tags.push({ tag: 'meta', attrs: { name: 'msvalidate.01', content: site.verification.bing } })
   if (!m.noindex) {
     tags.push({ tag: 'meta', attrs: { property: 'og:url', content: url } })
     tags.push({ tag: 'link', attrs: { rel: 'canonical', href: url } })
